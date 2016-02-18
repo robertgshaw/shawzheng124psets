@@ -2,12 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97d2c7b4-ac1f-4be3-9028-8ec801ee0de4" name="Default" comment="">
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Graph.java" afterPath="$PROJECT_DIR$/src/com/company/Graph.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/RandomNumberGenerator.java" afterPath="$PROJECT_DIR$/src/com/company/RandomNumberGenerator.java" />
+=======
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/adjacencyMatrix.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/shawzheng124pset3/com/company/Graph.class" afterPath="$PROJECT_DIR$/out/production/shawzheng124pset3/com/company/Graph.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/shawzheng124pset3/com/company/Main.class" afterPath="$PROJECT_DIR$/out/production/shawzheng124pset3/com/company/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/shawzheng124pset3/com/company/Prim.class" afterPath="$PROJECT_DIR$/out/production/shawzheng124pset3/com/company/Prim.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Graph.java" afterPath="$PROJECT_DIR$/src/com/company/Graph.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Prim.java" afterPath="$PROJECT_DIR$/src/com/company/Prim.java" />
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
     </list>
     <ignored path="shawzheng124pset3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,25 +44,35 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
               <caret line="11" column="61" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+=======
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Prim.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Prim.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Prim.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0">
               <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+=======
+            <state vertical-scroll-proportion="0.74807197">
+              <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PriorityQueue.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PriorityQueue.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/PriorityQueue.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.3243243">
               <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
               <folding />
@@ -74,9 +95,26 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+=======
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
               <folding>
                 <element signature="e#194#195#0" expanded="true" />
                 <element signature="e#226#227#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RandomNumberGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/RandomNumberGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <folding>
+                <element signature="e#335#336#0" expanded="true" />
+                <element signature="e#379#380#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,8 +124,20 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/Vertex.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
               <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
               <folding />
+=======
+              <caret line="7" column="24" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="e#763#764#0" expanded="true" />
+                <element signature="e#803#804#0" expanded="true" />
+                <element signature="e#875#876#0" expanded="true" />
+                <element signature="e#911#912#0" expanded="true" />
+                <element signature="e#972#973#0" expanded="true" />
+                <element signature="e#1006#1007#0" expanded="true" />
+              </folding>
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
             </state>
           </provider>
         </entry>
@@ -96,7 +146,34 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
               <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+=======
+              <caret line="46" column="59" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
+              <folding>
+                <element signature="e#1642#1643#0" expanded="true" />
+                <element signature="e#1686#1687#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdjacencyMatrix.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/AdjacencyMatrix.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="100" column="43" selection-start-line="100" selection-start-column="43" selection-end-line="100" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Edge.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Edge.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="69" column="3" selection-start-line="69" selection-start-column="3" selection-end-line="75" selection-end-column="5" />
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
               <folding />
             </state>
           </provider>
@@ -124,12 +201,18 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/company/Edge.java" />
         <option value="$PROJECT_DIR$/src/com/company/Vertex.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Prim.java" />
         <option value="$PROJECT_DIR$/src/com/company/Heap.java" />
         <option value="$PROJECT_DIR$/src/com/company/PriorityQueue.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/com/company/Graph.java" />
         <option value="$PROJECT_DIR$/src/com/company/RandomNumberGenerator.java" />
+=======
+        <option value="$PROJECT_DIR$/src/com/company/RandomNumberGenerator.java" />
+        <option value="$PROJECT_DIR$/src/com/company/AdjacencyMatrix.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Graph.java" />
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Prim.java" />
       </list>
     </option>
   </component>
@@ -215,7 +298,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -497,8 +580,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-11" y="-11" width="2070" height="1118" extended-state="6" />
     <editor active="false" />
+=======
+    <frame x="115" y="24" width="1017" height="688" extended-state="0" />
+    <editor active="true" />
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -506,7 +594,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952183" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3253638" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3263328" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20800781" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
@@ -562,30 +654,69 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/com/company/PriorityQueue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/company/Vertex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#763#764#0" expanded="true" />
+            <element signature="e#803#804#0" expanded="true" />
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#911#912#0" expanded="true" />
+            <element signature="e#972#973#0" expanded="true" />
+            <element signature="e#1006#1007#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/PriorityQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="e#3349#3350#0" expanded="true" />
+            <element signature="e#3391#3392#0" expanded="true" />
+            <element signature="e#3452#3453#0" expanded="true" />
+            <element signature="e#3480#3481#0" expanded="true" />
+            <element signature="e#3543#3544#0" expanded="true" />
+            <element signature="e#3575#3576#0" expanded="true" />
+          </folding>
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Vertex.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
           <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding />
+=======
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#379#380#0" expanded="true" />
+          </folding>
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Graph.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Edge.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+          <caret line="69" column="3" selection-start-line="69" selection-start-column="3" selection-end-line="75" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/shawzheng124pset3.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -597,10 +728,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/company/AdjacencyMatrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="43" selection-start-line="100" selection-start-column="43" selection-end-line="100" selection-end-column="43" />
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/com/company/Edge.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -648,6 +786,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3243243">
           <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/company/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="59" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
+          <folding>
+            <element signature="e#1642#1643#0" expanded="true" />
+            <element signature="e#1686#1687#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Prim.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74807197">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+>>>>>>> 468f57d62db68402a372c9530c584fc1bae5fd90
           <folding />
         </state>
       </provider>
