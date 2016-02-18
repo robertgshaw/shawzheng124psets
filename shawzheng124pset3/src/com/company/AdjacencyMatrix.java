@@ -62,7 +62,7 @@ public class AdjacencyMatrix {
     }
 
     // gets edges
-    private double getEdge(int i, int j) {
+    public double getEdge(int i, int j) {
         // checks to make sure we have valid indexes
         // returns rubbish if not
         if (i == j) {

@@ -49,4 +49,23 @@ public class Graph {
     public int getNumberOfVertexes() {
         return this.numberOfVertexes;
     }
+
+    //Sets vertex weight in graph based on index
+    public void setVertexWeight(int index, double weight) {
+        this.vertexes[index].setDistance(weight);
+    }
+
+    public Vertex getVertex(int index) {
+        if (index < numberOfVertexes) {
+            return this.vertexes[index];
+        }
+        else {
+            System.out.println("BAD INDEX FOR getVertex!");
+        }
+        return null;
+    }
+
+    public AdjacencyMatrix getAdjacencyMatrix() {
+        return this.adjacencyMatrix;
+    }
 }

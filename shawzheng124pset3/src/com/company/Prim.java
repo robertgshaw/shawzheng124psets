@@ -4,30 +4,44 @@ package com.company;
  * Created by robertshaw on 2/16/16.
  */
 public class Prim {
-    private Graph graph;
-    private Vertex[] tree;
-    private Vertex[] heap;
 
-    Prim(Graph graph, int size) {
-        // load the graph
-        this.graph = graph;
+    public static void runPrim(Graph graph) {
+        int numVertexes = graph.getNumberOfVertexes();
+        Vertex[] visitedVertexes = new Vertex[numVertexes]; // An array of all visited vertexes
+        PriorityQueue heap = new PriorityQueue(numVertexes);
+        Vertex min; // Popped min vertex
+        int counter = 0; // Tracks how many vertices have been visited
+        int minIndex; // Tracks index of current popped min vertex in while loop
+        Vertex neighbor; // Neighbor vertex in for loop of while loop
+        AdjacencyMatrix adjacencyMatrix = graph.getAdjacencyMatrix();
 
-        // set the tree to be empty at first
-        this.tree = new Vertex[size];
+        // Sets the arbitrary starting node's distance to be 0
+        graph.setVertexWeight(0, 0);
+        graph.getVertex(0).setPrevPointer(0); // Sets parent pointer of first vertex to itself
 
-        // TODO: create HEAP of the graph's vertexes, starting empty
+        heap.insertVertex(graph.getVertex(0));
 
-        // sets the arbitrary starting node's distance to be 0
-        //this.graph.vertexes[0].setWeight(0);
+        while (heap.notEmpty()) {
+            min = heap.deleteMin();
+            visitedVertexes[counter] = min;
+            min.visit();
+            counter++;
+            minIndex = min.getIndexInGraph();
 
-        // TODO: add this node to the priority queue
-
-        // TODO: deletemin of priority queue
-        // TODO: add deleted element to the tree
-
-        // TODO: iteratre through its edges, updating the node weights appropriately and adding to the heap
-
-        // TODO: go through the priority queue
+            for (int i = 0; i < numVertexes; i++) {
+                if (minIndex == i || graph.getVertex(i).isVisited()) {
+                    // Skip vertex
+                }
+                else {
+                    if (min.getDistance() > adjacencyMatrix.getEdge(i, minIndex)) {
+                        neighbor = graph.getVertex(i);
+                        neighbor.setDistance(adjacencyMatrix.getEdge(i, minIndex));
+                        neighbor.setPrevPointer(minIndex);
+                        heap.insertVertex(neighbor);
+                    }
+                }
+            }
+        }
 
     }
 

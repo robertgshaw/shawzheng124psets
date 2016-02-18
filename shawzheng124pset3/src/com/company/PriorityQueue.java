@@ -32,14 +32,14 @@ public class PriorityQueue {
             // swaps up the tree until invariant satisfied
             int parentIndex = this.parent(this.size - 1);
             Vertex parent = this.heap[parentIndex];
-            while(parentIndex != 0 && parent.getWeight() > vertex.getWeight()) {
+            while(parentIndex != 0 && parent.getDistance() > vertex.getDistance()) {
                 this.swap(parentIndex, this.size - 1);
             }
         }
     }
 
     // delete a vertex from the top of the heap
-    public void deleteMin() {
+    public Vertex deleteMin() {
         Vertex min = this.heap[0];
         // moves the last element of the heap to the top
         this.heap[0] = this.heap[this.size];
@@ -47,6 +47,17 @@ public class PriorityQueue {
         this.size = this.size - 1;
         // fixes the invariant
         this.minHeapify(this.heap, this.heap[0], 0);
+        // Returns min vertex
+        return min;
+    }
+
+    public boolean notEmpty() {
+        if (this.size == 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     // "fixes the heap invariant" to ensure valid heap
@@ -73,7 +84,7 @@ public class PriorityQueue {
         // sets the "smallest of the three"
         Vertex smallest = null;
         int smallestIndex = 0;
-        if (exists(leftIndex) && (root.getWeight() > leftChild.getWeight())) {
+        if (exists(leftIndex) && (root.getDistance() > leftChild.getDistance())) {
             smallest = leftChild;
             smallestIndex = leftIndex;
         } else {
@@ -81,7 +92,7 @@ public class PriorityQueue {
             smallestIndex = rootIndex;
         }
 
-        if (exists(rightIndex) && (smallest.getWeight() > rightChild.getWeight())) {
+        if (exists(rightIndex) && (smallest.getDistance() > rightChild.getDistance())) {
             smallest = rightChild;
             smallestIndex = rightIndex;
         }
