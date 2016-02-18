@@ -12,7 +12,7 @@ public class Main {
          * Replace the last parameter in Graph(...) with seed
          */
 
-        Graph graph = new Graph(10, 0, 1);
+        Graph graph = new Graph(10, 0);
 
     }
 }

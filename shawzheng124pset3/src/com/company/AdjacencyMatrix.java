@@ -51,7 +51,7 @@ public class AdjacencyMatrix {
         // ensure that edge weights to itself is 0
         if (i == j && i < this.numberOfVertexes) {
             this.matrix[i][j] = 0.0;
-        // ensure that the "larger" index is called first
+            // ensure that the "larger" index is called first
         } else if (i < j && j < this.numberOfVertexes) {
             this.matrix[j][i] = weight;
         } else if (i > j && i < this.numberOfVertexes) {
