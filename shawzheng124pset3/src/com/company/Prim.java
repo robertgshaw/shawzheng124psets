@@ -18,7 +18,7 @@ public class Prim {
         // TODO: create HEAP of the graph's vertexes, starting empty
 
         // sets the arbitrary starting node's distance to be 0
-        this.graph.vertexes[0].setWeight(0);
+        //this.graph.vertexes[0].setWeight(0);
 
         // TODO: add this node to the priority queue
 
