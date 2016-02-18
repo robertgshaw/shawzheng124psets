@@ -10,7 +10,7 @@ public class Graph {
     private int size = 0;
 
     // create a graph with vertexes in dimension d
-    Graph(int n, int dimension) {
+    Graph(int n, int dimension, int seed) {
         // init dimension, making sure there is valid input
         if (dimension == 0 || dimension == 2 || dimension == 3 || dimension == 4) {
             this.dimension = dimension;
@@ -35,7 +35,7 @@ public class Graph {
         System.out.println(this.edges.length);
 
         // setup random number generator
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator(seed);
         /*
          *  create n vertexes, n choose 2 edges
          *  add new edges to between i and all vertexes after i
