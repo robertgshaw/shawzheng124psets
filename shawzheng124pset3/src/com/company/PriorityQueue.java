@@ -26,25 +26,36 @@ public class PriorityQueue {
         else if (this.size < this.heap.length) {
             // adds to the heap
             this.heap[size] = vertex;
-            // increments size
-            this.size = this.size + 1;
 
-            // swaps up the tree until invariant satisfied
-            int parentIndex = this.parent(this.size - 1);
-            Vertex parent = this.heap[parentIndex];
-            while(parentIndex != 0 && parent.getDistance() > vertex.getDistance()) {
-                this.swap(parentIndex, this.size - 1);
+            if (size > 0) {
+                // swaps up the tree until invariant satisfied
+                int childIndex = this.size; // Index where vertex to be inserted currently is in heap
+                int parentIndex = this.parent(this.size - 1); // Index of parent vertex of vertex to be inserted in heap
+                Vertex parent = this.heap[parentIndex];
+                while (childIndex != 0 && parent.getDistance() > vertex.getDistance()) {
+                    this.swap(parentIndex, childIndex);
+                    childIndex = parentIndex;
+                    if (parentIndex != 0) {
+                        parentIndex = this.parent(parentIndex - 1);
+                        parent = this.heap[parentIndex];
+                    }
+                }
             }
+            else {
+
+            }
+            // increments size
+            this.size++;
         }
     }
 
     // delete a vertex from the top of the heap
     public Vertex deleteMin() {
         Vertex min = this.heap[0];
-        // moves the last element of the heap to the top
-        this.heap[0] = this.heap[this.size];
         // decrements the size
         this.size = this.size - 1;
+        // moves the last element of the heap to the top
+        this.heap[0] = this.heap[this.size]; //????
         // fixes the invariant
         this.minHeapify(this.heap, this.heap[0], 0);
         // Returns min vertex

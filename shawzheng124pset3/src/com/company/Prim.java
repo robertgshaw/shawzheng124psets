@@ -29,18 +29,21 @@ public class Prim {
             minIndex = min.getIndexInGraph();
 
             for (int i = 0; i < numVertexes; i++) {
+                neighbor = graph.getVertex(i);
+
                 if (minIndex == i || graph.getVertex(i).isVisited()) {
                     // Skip vertex
                 }
                 else {
-                    if (min.getDistance() > adjacencyMatrix.getEdge(i, minIndex)) {
-                        neighbor = graph.getVertex(i);
+                    if (neighbor.getDistance() > adjacencyMatrix.getEdge(i, minIndex)) {
                         neighbor.setDistance(adjacencyMatrix.getEdge(i, minIndex));
                         neighbor.setPrevPointer(minIndex);
                         heap.insertVertex(neighbor);
                     }
                 }
             }
+
+            System.out.println("Prim done!");
         }
 
     }
