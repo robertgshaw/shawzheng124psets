@@ -38,7 +38,12 @@ public class Prim {
                     if (neighbor.getDistance() > adjacencyMatrix.getEdge(i, minIndex)) {
                         neighbor.setDistance(adjacencyMatrix.getEdge(i, minIndex));
                         neighbor.setPrevPointer(minIndex);
-                        heap.insertVertex(neighbor);
+                        if (neighbor.isInHeap()) {
+                            heap.updateVertex(neighbor.getIndexinHeap());
+                        }
+                        else {
+                            heap.insertVertex(neighbor);
+                        }
                     }
                 }
             }

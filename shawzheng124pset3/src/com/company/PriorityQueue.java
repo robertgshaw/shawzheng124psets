@@ -25,21 +25,12 @@ public class PriorityQueue {
         // otherwise add into next available spot in the heap
         else if (this.size < this.heap.length) {
             // adds to the heap
-            this.heap[size] = vertex;
+            this.heap[this.size] = vertex;
+            vertex.setIndexinHeap(this.size);
 
-            if (size > 0) {
+            if (this.size > 0) {
                 // swaps up the tree until invariant satisfied
-                int childIndex = this.size; // Index where vertex to be inserted currently is in heap
-                int parentIndex = this.parent(this.size - 1); // Index of parent vertex of vertex to be inserted in heap
-                Vertex parent = this.heap[parentIndex];
-                while (childIndex != 0 && parent.getDistance() > vertex.getDistance()) {
-                    this.swap(parentIndex, childIndex);
-                    childIndex = parentIndex;
-                    if (parentIndex != 0) {
-                        parentIndex = this.parent(parentIndex - 1);
-                        parent = this.heap[parentIndex];
-                    }
-                }
+                updateVertex(this.size);
             }
             else {
 
@@ -49,13 +40,31 @@ public class PriorityQueue {
         }
     }
 
+    // Swaps up the tree until invariant satisfied
+    public void updateVertex(int index) {
+        // swaps up the tree until invariant satisfied
+        int childIndex = index; // Index where vertex to be inserted currently is in heap
+        int parentIndex = this.parent(index); // Index of parent vertex of vertex to be inserted in heap
+        Vertex parent = this.heap[parentIndex];
+        while (childIndex != 0 && parent.getDistance() > this.heap[childIndex].getDistance()) {
+            this.swap(parentIndex, childIndex);
+            childIndex = parentIndex;
+            if (parentIndex != 0) {
+                parentIndex = this.parent(parentIndex);
+                parent = this.heap[parentIndex];
+            }
+        }
+    }
+
     // delete a vertex from the top of the heap
     public Vertex deleteMin() {
         Vertex min = this.heap[0];
+        // moves the last element of the heap to the top
+        this.heap[0] = this.heap[this.size - 1];
+        // Removes copy of last element at bottom of heap
+        this.heap[this.size - 1] = null;
         // decrements the size
         this.size = this.size - 1;
-        // moves the last element of the heap to the top
-        this.heap[0] = this.heap[this.size]; //????
         // fixes the invariant
         this.minHeapify(this.heap, this.heap[0], 0);
         // Returns min vertex
@@ -82,12 +91,12 @@ public class PriorityQueue {
 
         // checks if children exist before assignment
         if (this.exists(leftIndex)) {
-            leftChild = heap[this.left(rootIndex)];
+            leftChild = heap[leftIndex];
         } else {
             leftChild = null;
         }
         if (this.exists(rightIndex)) {
-            rightChild = heap[this.right(rootIndex)];
+            rightChild = heap[rightIndex];
         } else {
             rightChild = null;
         }
@@ -111,7 +120,7 @@ public class PriorityQueue {
         // swaps the head with the smallest, recursively call function
         if (smallest != root) {
             this.swap(smallestIndex, rootIndex);
-            this.minHeapify(heap, smallest, smallestIndex);
+            this.minHeapify(heap, root, smallestIndex);
         }
     }
 
@@ -125,17 +134,22 @@ public class PriorityQueue {
     // HELPER FUNCTIONS TO FIND...
     // parent of a vertex
     private int parent(int i) {
-        return Math.floorDiv(i, 2);
+        if (i == 0) {
+            return 0;
+        }
+        else {
+            return Math.floorDiv(i - 1, 2);
+        }
     }
 
     // left child of a vertex
     private int left(int i) {
-        return 2 * i;
+        return 2 * i + 1;
     }
 
     // right child of a vertex
     private int right(int i) {
-        return 2 * i + 1;
+        return 2 * i + 2;
     }
 
     // check if a child node exists
@@ -154,6 +168,8 @@ public class PriorityQueue {
         temp = this.heap[i];
         this.heap[i] = this.heap[j];
         this.heap[j] = temp;
+        this.heap[i].setIndexinHeap(i); // Updates indexes of vertexes in heap after swap
+        this.heap[j].setIndexinHeap(j);
 
         return;
     }

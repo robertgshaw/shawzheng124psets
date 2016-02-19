@@ -4,7 +4,7 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        Graph graph = new Graph(10, 0);
+        Graph graph = new Graph(5, 0);
 
         Prim.runPrim(graph); // Runs Prim's algorithm on given graph
 

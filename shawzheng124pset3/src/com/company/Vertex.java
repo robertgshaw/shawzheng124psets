@@ -6,6 +6,7 @@ package com.company;
 public class Vertex {
     // index = ID of vertex
     private int indexInGraph;
+    private int indexinHeap; // Tracks vertex index in heap
     private double distance;
     private int prevPointer;
     private boolean visited; // Indicates if a vertex has been visited in Prim's algorithm
@@ -24,6 +25,7 @@ public class Vertex {
         this.distance = Double.MAX_VALUE;
         this.prevPointer = -1;
         this.visited = false;
+        this.indexinHeap = -1;
     }
 
     // setter of index in graph
@@ -33,6 +35,25 @@ public class Vertex {
         } else {
             this.indexInGraph =  -1;
         }
+    }
+
+    public boolean isInHeap(){
+        if (this.indexinHeap >= 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    // getter of index in heap
+    public int getIndexinHeap() {
+        return this.indexinHeap;
+    }
+
+    // getter of index in heap
+    public void setIndexinHeap(int index) {
+        this.indexinHeap = index;
     }
 
     // getter of index in graph
