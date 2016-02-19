@@ -46,6 +46,12 @@ public class PriorityQueue {
         int childIndex = index; // Index where vertex to be inserted currently is in heap
         int parentIndex = this.parent(index); // Index of parent vertex of vertex to be inserted in heap
         Vertex parent = this.heap[parentIndex];
+        if (parent == null) {
+            System.out.println("ERROR!");
+        }
+        if (this.heap[childIndex] == null) {
+            System.out.println("ERROR!");
+        }
         while (childIndex != 0 && parent.getDistance() > this.heap[childIndex].getDistance()) {
             this.swap(parentIndex, childIndex);
             childIndex = parentIndex;
@@ -56,16 +62,20 @@ public class PriorityQueue {
         }
     }
 
-    // delete a vertex from the top of the heap
+    // Delete a vertex from the top of the heap
     public Vertex deleteMin() {
         Vertex min = this.heap[0];
-        // moves the last element of the heap to the top
+        // Moves the last element of the heap to the top
         this.heap[0] = this.heap[this.size - 1];
         // Removes copy of last element at bottom of heap
         this.heap[this.size - 1] = null;
-        // decrements the size
+        // Decrements the size
         this.size = this.size - 1;
-        // fixes the invariant
+        // Updates the indexInHeap value of the moved element
+        if (this.size != 0) {
+            this.heap[0].setIndexinHeap(0);
+        }
+        // Fixes the invariant
         this.minHeapify(this.heap, this.heap[0], 0);
         // Returns min vertex
         return min;
