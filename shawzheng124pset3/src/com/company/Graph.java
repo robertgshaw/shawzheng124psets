@@ -38,14 +38,11 @@ public class Graph {
             // initialize and add to the vertex array
             // locations added in vertex
             Vertex vertex = new Vertex(i, this.dimension);
-            System.out.println(vertex.toString());
             this.vertexes[i] = vertex;
         }
 
         // init the adjacency matrix, with edge weights dependent on dimension
-        this.adjacencyMatrix = new AdjacencyMatrix(this.numberOfVertexes, this.dimension, this.vertexes);;
-
-        System.out.println(this.adjacencyMatrix.toString());
+        this.adjacencyMatrix = new AdjacencyMatrix(this.numberOfVertexes, this.dimension, this.vertexes);
     }
 
     public int getNumberOfVertexes() {
