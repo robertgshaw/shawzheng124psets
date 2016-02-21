@@ -22,23 +22,44 @@ public class AdjacencyMatrix {
     private int numberOfVertexes;
 
     // constructor
-    AdjacencyMatrix(int n, int dimension) {
+    AdjacencyMatrix(int n, int dimension, Vertex[] vertexes) {
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
-        // ensure we have a sensible size of the matrix
-        if (n > 0 && dimension == 0) {
+        // zero dimension
+        if (n > 0) {
             // sets number of vertexes
             this.numberOfVertexes = n;
             // initialize the number of rows
             this.matrix = new double[n][];
-            // initialize the size of each column
-            for (int i = 0; i < n; i++) {
-                this.matrix[i] = new double[i + 1];
+            // setup random edge weights for the 0D case
+            if (dimension == 0) {
+                // initialize the size of each column
+                for (int i = 0; i < n; i++) {
+                    this.matrix[i] = new double[i + 1];
 
-                /* as each column is created, iterate through and
-                   randomly assign edge weights */
-                for (int j = 0; j < i + 1; j++) {
-                    this.setEdge(j, i, randomNumberGenerator.generateRandom());
+                    // as each column is created, iterate through and randomly assign edge weights
+                    for (int j = 0; j < i + 1; j++) {
+                        this.setEdge(j, i, randomNumberGenerator.generateRandom());
+                    }
+                }
+            // otherwise setup weights based on distance based on positions
+            } else {
+                // initialize the size of each column
+                for (int i = 0; i < n; i++) {
+                    this.matrix[i] = new double[i + 1];
+
+                    // as each column is created, iterate through the row and assign edge weights
+                    for (int j = 0; j < i + 1; j++) {
+                        if (dimension == 2) {
+                            this.setEdge(j, i, Position.calculateDistance2D(vertexes[j].getPosition(), vertexes[i].getPosition()));
+                        } else if (dimension == 3) {
+                            this.setEdge(j, i, Position.calculateDistance3D(vertexes[j].getPosition(), vertexes[i].getPosition()));
+                        } else if (dimension == 4) {
+                            this.setEdge(j, i, Position.calculateDistance4D(vertexes[j].getPosition(), vertexes[i].getPosition()));
+                        } else {
+                            System.out.println("dimension invalid");
+                        }
+                    }
                 }
             }
         } else {

@@ -36,12 +36,14 @@ public class Graph {
         for (int i = 0; i < this.numberOfVertexes; i++) {
             // identify each vertex by its index in the vertex array
             // initialize and add to the vertex array
-            Vertex vertex = new Vertex(i);
+            // locations added in vertex
+            Vertex vertex = new Vertex(i, this.dimension);
             this.vertexes[i] = vertex;
         }
 
-        // init the adjacency matrix with random edge weights
-        this.adjacencyMatrix = new AdjacencyMatrix(this.numberOfVertexes, 0);;
+
+        // init the adjacency matrix, with edge weights dependent on dimension
+        this.adjacencyMatrix = new AdjacencyMatrix(this.numberOfVertexes, this.dimension, this.vertexes);;
 
         System.out.println(this.adjacencyMatrix.toString());
     }

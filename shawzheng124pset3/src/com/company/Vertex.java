@@ -1,5 +1,7 @@
 package com.company;
 
+import sun.java2d.pisces.PiscesRenderingEngine;
+
 /**
  * Created by robertshaw on 2/16/16.
  */
@@ -8,20 +10,44 @@ public class Vertex {
     private int indexInGraph;
     private int indexinHeap; // Tracks vertex index in heap
     private double distance;
+    private int dimension;
+    private Position position;
     private int prevPointer;
     private boolean visited; // Indicates if a vertex has been visited in Prim's algorithm
 
-    // NOTE: Adjacency list is implied here: it is connected to all other nodes
-
     // constructor
     // NOTE: EACH VERTEX ID by its index in graph
-    public Vertex(int index) {
+    public Vertex(int index, int dimension) {
+        // checks index/ id of vertex
         if (index >= 0) {
             this.indexInGraph = index;
         } else {
+            System.out.println();
             this.indexInGraph =  -1;
         }
 
+        // random number generator
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+
+        // setup 0D case
+        if (dimension == 0) {
+            this.dimension = 0;
+            this.position = null;
+        // setup 2D case, by giving x,y coordinates
+        } else if (dimension == 2) {
+            this.dimension = 2;
+            this.position = new Position(2, 1, 1);
+        // setup 3D case, by giving x,y,z coordinates
+        } else if (dimension == 3) {
+            this.dimension = 3;
+            this.position = new Position(3, 1, 1, 1);
+        // setup 4D case, by giving x,y,z,w coordinates
+        } else {
+            this.dimension = 4;
+            this.position = new Position(4,1,1,1,1);
+        }
+
+        // initializes values for prims
         this.distance = Double.MAX_VALUE;
         this.prevPointer = -1;
         this.visited = false;
@@ -37,6 +63,7 @@ public class Vertex {
         }
     }
 
+    // checks if a vertex is already in the heap
     public boolean isInHeap(){
         if (this.indexinHeap >= 0) {
             return true;
@@ -45,6 +72,9 @@ public class Vertex {
             return false;
         }
     }
+
+    // getter of position
+    public Position getPosition() { return this.position; }
 
     // getter of index in heap
     public int getIndexinHeap() {
@@ -97,6 +127,7 @@ public class Vertex {
         return  "Vertex Index: " + this.indexInGraph +
                 ", Vertex Weight: " + this.distance
                 + ", Visited: " + this.visited
-                + ", PrevPointer: " + this.prevPointer;
+                + ", PrevPointer: " + this.prevPointer
+                + ", Position:" + this.position.toString();
     }
 }
