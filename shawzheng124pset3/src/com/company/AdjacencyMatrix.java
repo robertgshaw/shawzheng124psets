@@ -5,7 +5,7 @@ package com.company;
  */
 public class AdjacencyMatrix {
 
-    private double[][] matrix;
+    private float[][] matrix;
     // the matrix will look like this //
     /*      0       1       2       3       4
      *  0   x
@@ -30,12 +30,13 @@ public class AdjacencyMatrix {
             // sets number of vertexes
             this.numberOfVertexes = n;
             // initialize the number of rows
-            this.matrix = new double[n][];
+            this.matrix = new float[n][];
             // setup random edge weights for the 0D case
             if (dimension == 0) {
                 // initialize the size of each column
-                for (int i = 0; i < n; i++) {
-                    this.matrix[i] = new double[i + 1];
+                for (int i = 0; i < this.numberOfVertexes; i++) {
+                    System.out.println("line: " + i);
+                    this.matrix[i] = new float[i + 1];
 
                     // as each column is created, iterate through and randomly assign edge weights
                     for (int j = 0; j < i + 1; j++) {
@@ -45,8 +46,9 @@ public class AdjacencyMatrix {
             // otherwise setup weights based on distance based on positions
             } else {
                 // initialize the size of each column
-                for (int i = 0; i < n; i++) {
-                    this.matrix[i] = new double[i + 1];
+                for (int i = 0; i < this.numberOfVertexes; i++) {
+                    System.out.println("line: " + i);
+                    this.matrix[i] = new float[i + 1];
 
                     // as each column is created, iterate through the row and assign edge weights
                     for (int j = 0; j < i + 1; j++) {
@@ -68,10 +70,10 @@ public class AdjacencyMatrix {
     }
 
     // sets edges
-    private void setEdge(int i, int j, double weight) {
+    private void setEdge(int i, int j, float weight) {
         // ensure that edge weights to itself is 0
         if (i == j && i < this.numberOfVertexes) {
-            this.matrix[i][j] = 0.0;
+            this.matrix[i][j] = 0;
             // ensure that the "larger" index is called first
         } else if (i < j && j < this.numberOfVertexes) {
             this.matrix[j][i] = weight;
@@ -83,7 +85,7 @@ public class AdjacencyMatrix {
     }
 
     // gets edges
-    public double getEdge(int i, int j) {
+    public float getEdge(int i, int j) {
         // checks to make sure we have valid indexes
         // returns rubbish if not
         if (i == j) {
@@ -91,21 +93,21 @@ public class AdjacencyMatrix {
                 return this.matrix[i][i];
             } else {
                 System.out.println("Invalid Index");
-                return -1.0;
+                return -1;
             }
         } else if (i < j){
             if (j < this.numberOfVertexes) {
                 return this.matrix[j][i];
             } else {
                 System.out.println("Invalid Index");
-                return -1.0;
+                return -1;
             }
         } else {
             if (i < this.numberOfVertexes) {
                 return this.matrix[i][j];
             } else {
                 System.out.println("Invalid Index");
-                return -1.0;
+                return -1;
             }
         }
 

@@ -9,7 +9,7 @@ public class Vertex {
     // index = ID of vertex
     private int indexInGraph;
     private int indexinHeap; // Tracks vertex index in heap
-    private double distance;
+    private float distance;
     private int dimension;
     private Position position;
     private int prevPointer;
@@ -58,7 +58,7 @@ public class Vertex {
         }
 
         // initializes values for prims
-        this.distance = Double.MAX_VALUE;
+        this.distance = Float.MAX_VALUE;
         this.prevPointer = -1;
         this.visited = false;
         this.indexinHeap = -1;
@@ -102,12 +102,12 @@ public class Vertex {
     }
 
     // setter of the distance
-    public void setDistance(double distance) {
+    public void setDistance(float distance) {
         this.distance = distance;
     }
 
     // getter of the distance
-    public double getDistance() {
+    public float getDistance() {
         return this.distance;
     }
 

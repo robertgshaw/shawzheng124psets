@@ -23,14 +23,11 @@ public class Graph {
             this.numberOfVertexes = n;
         } else {
             // TODO: make this throw an exception
-            this.numberOfVertexes = 1;
+            this.numberOfVertexes = -1;
         }
 
         // init the vertex array of size n
         this.vertexes = new Vertex[this.numberOfVertexes];
-
-        // setup random number generator
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
         // create n vertexes
         for (int i = 0; i < this.numberOfVertexes; i++) {
@@ -50,7 +47,7 @@ public class Graph {
     }
 
     //Sets vertex weight in graph based on index
-    public void setVertexWeight(int index, double weight) {
+    public void setVertexWeight(int index, float weight) {
         this.vertexes[index].setDistance(weight);
     }
 
