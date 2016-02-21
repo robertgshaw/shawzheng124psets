@@ -7,16 +7,16 @@ public class AdjacencyMatrix {
 
     private float[][] matrix;
     // the matrix will look like this //
-    /*      0       1       2       3       4
-     *  0   x
+    /*          0       1       2       3       4
+     *      0   x
      *
-     *  1   x       x
+     *      1   x       x
      *
-     *  2   x       x       x
+     *      2   x       x       x
      * (                                               )
-     *  3   x       x       x       x
+     *      3   x       x       x       x
      *
-     *  4   x       x       x       x       x
+     *      4   x       x       x       x       x
      */
 
     private int numberOfVertexes;

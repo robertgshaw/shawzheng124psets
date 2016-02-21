@@ -81,19 +81,20 @@ public class Position {
 
     // class method used to calculate euclidian distance in 2D
     public static float calculateDistance2D(Position vertex1, Position vertex2) {
-        return  Position.squared(vertex1.x - vertex2.x) + Position.squared(vertex1.y - vertex2.y);
+        return (float) Math.sqrt((double) Position.squared(vertex1.x - vertex2.x) + Position.squared(vertex1.y - vertex2.y));
+
     }
 
     // class method used to calculate euclidian distance in 3D
     public static float calculateDistance3D(Position vertex1, Position vertex2) {
-        return  Position.squared(vertex1.x - vertex2.x) + Position.squared(vertex1.y - vertex2.y) +
-                Position.squared(vertex1.z - vertex2.z);
+        return (float) Math.sqrt((double) Position.squared(vertex1.x - vertex2.x) + Position.squared(vertex1.y - vertex2.y) +
+                Position.squared(vertex1.z - vertex2.z));
     }
 
     // class method used to calculate euclidian distance in 4D
     public static float calculateDistance4D(Position vertex1, Position vertex2) {
-        return  Position.squared(vertex1.x - vertex2.x) + Position.squared(vertex1.y - vertex2.y) +
-                Position.squared(vertex1.z - vertex2.z) + Position.squared(vertex1.w - vertex2.w);
+        return  (float) Math.sqrt((double) Position.squared(vertex1.x - vertex2.x) + Position.squared(vertex1.y - vertex2.y) +
+                Position.squared(vertex1.z - vertex2.z) + Position.squared(vertex1.w - vertex2.w));
     }
 
     @Override
