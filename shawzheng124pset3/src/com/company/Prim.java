@@ -50,7 +50,7 @@ public class Prim {
 
         }
 
-        System.out.println("Prim done!");
+//        System.out.println("Prim done!");
     }
 
 }

@@ -35,7 +35,7 @@ public class AdjacencyMatrix {
             if (dimension == 0) {
                 // initialize the size of each column
                 for (int i = 0; i < this.numberOfVertexes; i++) {
-                    System.out.println("line: " + i);
+//                    System.out.println("line: " + i);
                     this.matrix[i] = new float[i + 1];
 
                     // as each column is created, iterate through and randomly assign edge weights
@@ -47,7 +47,7 @@ public class AdjacencyMatrix {
             } else {
                 // initialize the size of each column
                 for (int i = 0; i < this.numberOfVertexes; i++) {
-                    System.out.println("line: " + i);
+//                    System.out.println("line: " + i);
                     this.matrix[i] = new float[i + 1];
 
                     // as each column is created, iterate through the row and assign edge weights
