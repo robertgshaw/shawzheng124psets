@@ -5,7 +5,7 @@ package com.company;
  */
 public class Prim {
 
-    public static void runPrim(Graph graph) {
+    public static float runPrim(Graph graph) {
         int numVertexes = graph.getNumberOfVertexes();
         Vertex[] visitedVertexes = new Vertex[numVertexes]; // An array of all visited vertexes
         PriorityQueue heap = new PriorityQueue(numVertexes);
@@ -15,6 +15,7 @@ public class Prim {
         Vertex neighbor; // Neighbor vertex in for loop of while loop
         //AdjacencyMatrix adjacencyMatrix = graph.getAdjacencyMatrix();
         AdjacencyList adjacencyList = graph.getAdjacencyList();
+        float maxDeleted = 0; // used in finding k(n)
 
         // Sets the arbitrary starting node's distance to be 0
         graph.setVertexWeight(0, 0);
@@ -23,12 +24,21 @@ public class Prim {
         heap.insertVertex(graph.getVertex(0));
 
         while (heap.notEmpty()) {
+            // get the smallest element in the heap
             min = heap.deleteMin();
+
+            // used in k(n) calculations
+            if (min.getDistance() > maxDeleted) {
+                maxDeleted = min.getDistance();
+            }
+
+            // updates the heap
             visitedVertexes[counter] = min;
             min.visit();
             counter++;
             minIndex = min.getIndexInGraph();
 
+            // iterates through the vertexes
             for (int i = 0; i < numVertexes; i++) {
                 neighbor = graph.getVertex(i);
 
@@ -50,7 +60,7 @@ public class Prim {
             }
 
         }
-
+        return maxDeleted;
 //        System.out.println("Prim done!");
     }
 
