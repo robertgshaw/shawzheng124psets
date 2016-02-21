@@ -38,6 +38,7 @@ public class Graph {
             // initialize and add to the vertex array
             // locations added in vertex
             Vertex vertex = new Vertex(i, this.dimension);
+            System.out.println(vertex.toString());
             this.vertexes[i] = vertex;
         }
 
