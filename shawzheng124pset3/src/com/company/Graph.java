@@ -6,6 +6,7 @@ package com.company;
 public class Graph {
     private Vertex[] vertexes;
     private AdjacencyMatrix adjacencyMatrix;
+    private AdjacencyList adjacencyList;
     private int dimension;
     private int numberOfVertexes = 0;
 
@@ -39,7 +40,10 @@ public class Graph {
         }
 
         // init the adjacency matrix, with edge weights dependent on dimension
-        this.adjacencyMatrix = new AdjacencyMatrix(this.numberOfVertexes, this.dimension, this.vertexes);
+        //this.adjacencyMatrix = new AdjacencyMatrix(this.numberOfVertexes, this.dimension, this.vertexes);
+
+        // init the adjacency list
+        this.adjacencyList = new AdjacencyList(this.numberOfVertexes, this.dimension, this.vertexes);
     }
 
     public int getNumberOfVertexes() {
@@ -61,7 +65,11 @@ public class Graph {
         return null;
     }
 
-    public AdjacencyMatrix getAdjacencyMatrix() {
-        return this.adjacencyMatrix;
+//    public AdjacencyMatrix getAdjacencyMatrix() {
+//        return this.adjacencyMatrix;
+//    }
+
+    public AdjacencyList getAdjacencyList() {
+        return this.adjacencyList;
     }
 }

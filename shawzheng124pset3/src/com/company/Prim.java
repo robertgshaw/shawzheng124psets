@@ -13,7 +13,8 @@ public class Prim {
         int counter = 0; // Tracks how many vertices have been visited
         int minIndex; // Tracks index of current popped min vertex in while loop
         Vertex neighbor; // Neighbor vertex in for loop of while loop
-        AdjacencyMatrix adjacencyMatrix = graph.getAdjacencyMatrix();
+        //AdjacencyMatrix adjacencyMatrix = graph.getAdjacencyMatrix();
+        AdjacencyList adjacencyList = graph.getAdjacencyList();
 
         // Sets the arbitrary starting node's distance to be 0
         graph.setVertexWeight(0, 0);
@@ -35,8 +36,8 @@ public class Prim {
                     // Skip vertex
                 }
                 else {
-                    if (neighbor.getDistance() > adjacencyMatrix.getEdge(i, minIndex)) {
-                        neighbor.setDistance(adjacencyMatrix.getEdge(i, minIndex));
+                    if (neighbor.getDistance() > adjacencyList.getEdge(i, minIndex)) {
+                        neighbor.setDistance(adjacencyList.getEdge(i, minIndex));
                         neighbor.setPrevPointer(minIndex);
                         if (neighbor.isInHeap()) {
                             heap.updateVertex(neighbor.getIndexinHeap());

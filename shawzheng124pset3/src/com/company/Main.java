@@ -6,10 +6,10 @@ public class Main {
     public static void main(String[] args) {
         // 16; 32; 64; 128; 256; 512; 1024; 2048; 4096; 8192; 16384, 32768, 65536,
         int numpoints;
-        int numtrials = 10;
-        int dimension = 4;
+        int numtrials = 5;
+        int dimension = 2;
 
-        for (int k = 4; k < 14; k++) {
+        for (int k = 4; k < 10; k++) {
             numpoints = Main.power(2, k);
             float sumOfWeights = 0.0f;
 
