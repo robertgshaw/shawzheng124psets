@@ -41,7 +41,6 @@ public class Graph {
             this.vertexes[i] = vertex;
         }
 
-
         // init the adjacency matrix, with edge weights dependent on dimension
         this.adjacencyMatrix = new AdjacencyMatrix(this.numberOfVertexes, this.dimension, this.vertexes);;
 

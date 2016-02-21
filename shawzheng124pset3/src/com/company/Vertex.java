@@ -33,18 +33,28 @@ public class Vertex {
         if (dimension == 0) {
             this.dimension = 0;
             this.position = null;
-        // setup 2D case, by giving x,y coordinates
+
+        // setup 2D case, by giving random x,y coordinates
         } else if (dimension == 2) {
             this.dimension = 2;
-            this.position = new Position(2, 1, 1);
-        // setup 3D case, by giving x,y,z coordinates
+            this.position =
+                    new Position(2, randomNumberGenerator.generateRandom(),
+                                    randomNumberGenerator.generateRandom());
+        // setup 3D case, by giving random x,y,z coordinates
         } else if (dimension == 3) {
             this.dimension = 3;
-            this.position = new Position(3, 1, 1, 1);
-        // setup 4D case, by giving x,y,z,w coordinates
+            this.position =
+                    new Position(3, randomNumberGenerator.generateRandom(),
+                                    randomNumberGenerator.generateRandom(),
+                                    randomNumberGenerator.generateRandom());
+        // setup 4D case, by giving random x,y,z,w coordinates
         } else {
             this.dimension = 4;
-            this.position = new Position(4,1,1,1,1);
+            this.position =
+                    new Position(4, randomNumberGenerator.generateRandom(),
+                                    randomNumberGenerator.generateRandom(),
+                                    randomNumberGenerator.generateRandom(),
+                                    randomNumberGenerator.generateRandom());
         }
 
         // initializes values for prims
@@ -124,10 +134,15 @@ public class Vertex {
     // toString method for printing
     @Override
     public String toString() {
-        return  "Vertex Index: " + this.indexInGraph +
-                ", Vertex Weight: " + this.distance
-                + ", Visited: " + this.visited
-                + ", PrevPointer: " + this.prevPointer
-                + ", Position:" + this.position.toString();
+        String returnString = "Vertex Index: " + this.indexInGraph +
+                    ", Vertex Weight: " + this.distance
+                    + ", Visited: " + this.visited
+                    + ", PrevPointer: " + this.prevPointer;
+        if(this.dimension != 0) {
+            returnString = returnString + ", Position:" + this.position.toString();
+        }
+
+        return returnString;
+
     }
 }
