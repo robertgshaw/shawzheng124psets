@@ -8,22 +8,33 @@ public class Main {
     public static void main(String[] args) {
         // 16; 32; 64; 128; 256; 512; 1024; 2048; 4096; 8192; 16384, 32768, 65536,
         int numpoints;
-        int numtrials = 100;
-        int dimension = 4;
+        int numtrials = 5;
+        int dimension = 0;
+        boolean prune;
 
         try {
-            File f = new
-                    File("D:\\Ben\\Documents\\Harvard\\CS 124\\workspace\\shawzheng124psets\\shawzheng124pset3\\kn.txt");
+            File f = new File("D:\\Ben\\Documents\\Harvard\\CS 124\\workspace\\shawzheng124psets\\shawzheng124pset3\\fnD0.txt");
             PrintWriter out = new PrintWriter(f);
 
-            for (int k = 9; k < 10; k++) {
+            for (int k = 4; k < 17; k++) {
+                if (k < 9) {
+                    prune = false;
+                }
+                else {
+                    prune = true;
+                }
+
+                //if (k > 11) {
+                  //  numtrials = 5;
+                //}
+
                 numpoints = Main.power(2, k);           // number of points to be used in MST
                 float sumOfWeights = 0.0f;              // sum of the weights of all of the MST
                 float sumOfMaxDeleted = 0.0f;           // used in finding K(n)
 
                 for (int j = 0; j < numtrials; j++) {
                     // initializes the graph
-                    Graph graph = new Graph(numpoints, dimension);
+                    Graph graph = new Graph(numpoints, dimension, prune);
 
                     // Runs Prim's algorithm on given graph
                     float maxDeleted= Prim.runPrim(graph);
@@ -42,7 +53,7 @@ public class Main {
                     sumOfWeights = sumOfWeights + weightOfMST;
                 }
 
-                out.print(sumOfMaxDeleted / numtrials + ", ");
+                out.print(sumOfWeights / numtrials + ", ");
                 System.out.println(sumOfWeights / numtrials);
             }
 

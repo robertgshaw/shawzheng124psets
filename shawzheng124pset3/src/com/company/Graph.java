@@ -9,9 +9,10 @@ public class Graph {
     private AdjacencyList adjacencyList;
     private int dimension;
     private int numberOfVertexes = 0;
+    private boolean prune;
 
     // create a graph with vertexes in dimension d
-    Graph(int n, int dimension) {
+    Graph(int n, int dimension, boolean prune) {
         // init dimension, making sure there is valid input
         if (dimension == 0 || dimension == 2 || dimension == 3 || dimension == 4) {
             this.dimension = dimension;
@@ -30,6 +31,9 @@ public class Graph {
         // init the vertex array of size n
         this.vertexes = new Vertex[this.numberOfVertexes];
 
+        // init boolean to determine if n is large enough such that we will throw away edges of large enough weight
+        this.prune = prune;
+
         // create n vertexes
         for (int i = 0; i < this.numberOfVertexes; i++) {
             // identify each vertex by its index in the vertex array
@@ -43,7 +47,7 @@ public class Graph {
         //this.adjacencyMatrix = new AdjacencyMatrix(this.numberOfVertexes, this.dimension, this.vertexes);
 
         // init the adjacency list
-        this.adjacencyList = new AdjacencyList(this.numberOfVertexes, this.dimension, this.vertexes);
+        this.adjacencyList = new AdjacencyList(this.numberOfVertexes, this.dimension, this.vertexes, this.prune);
     }
 
     public int getNumberOfVertexes() {

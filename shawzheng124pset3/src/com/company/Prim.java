@@ -7,7 +7,7 @@ public class Prim {
 
     public static float runPrim(Graph graph) {
         int numVertexes = graph.getNumberOfVertexes();
-        Vertex[] visitedVertexes = new Vertex[numVertexes]; // An array of all visited vertexes
+        //Vertex[] visitedVertexes = new Vertex[numVertexes]; // An array of all visited vertexes
         PriorityQueue heap = new PriorityQueue(numVertexes);
         Vertex min; // Popped min vertex
         int counter = 0; // Tracks how many vertices have been visited
@@ -33,7 +33,7 @@ public class Prim {
             }
 
             // updates the heap
-            visitedVertexes[counter] = min;
+            //visitedVertexes[counter] = min;
             min.visit();
             counter++;
             minIndex = min.getIndexInGraph();
