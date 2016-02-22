@@ -12,56 +12,40 @@ public class Main {
         int dimension = 0;
         boolean prune;
 
-        try {
-            File f = new File("D:\\Ben\\Documents\\Harvard\\CS 124\\workspace\\shawzheng124psets\\shawzheng124pset3\\fnD0.txt");
-            PrintWriter out = new PrintWriter(f);
-
-            for (int k = 4; k < 17; k++) {
-                if (k < 9) {
-                    prune = false;
-                }
-                else {
-                    prune = true;
-                }
-
-                //if (k > 11) {
-                  //  numtrials = 5;
-                //}
-
-                numpoints = Main.power(2, k);           // number of points to be used in MST
-                float sumOfWeights = 0.0f;              // sum of the weights of all of the MST
-                float sumOfMaxDeleted = 0.0f;           // used in finding K(n)
-
-                for (int j = 0; j < numtrials; j++) {
-                    // initializes the graph
-                    Graph graph = new Graph(numpoints, dimension, prune);
-
-                    // Runs Prim's algorithm on given graph
-                    float maxDeleted= Prim.runPrim(graph);
-
-                    // Weight of the MST, sum of each vertex's distance
-                    float weightOfMST = 0.0f;
-                    for (int i = 0; i < graph.getNumberOfVertexes(); i++) {
-                        weightOfMST = weightOfMST + graph.getVertex(i).getDistance();
-
-//                        System.out.println(graph.getVertex(i).toString());
-                    }
-
-                    // used in k(n) calculations
-                    sumOfMaxDeleted = sumOfMaxDeleted + maxDeleted;
-                    // sums the weights of the MSTs
-                    sumOfWeights = sumOfWeights + weightOfMST;
-                }
-
-                out.print(sumOfWeights / numtrials + ", ");
-                System.out.println(sumOfWeights / numtrials);
+        for (int k = 4; k < 15; k++) {
+            if (k < 9) {
+                prune = false;
+            }
+            else {
+                prune = true;
             }
 
-            out.close();
-        }
+            numpoints = Main.power(2, k);           // number of points to be used in MST
+            float sumOfWeights = 0.0f;              // sum of the weights of all of the MST
+            float sumOfMaxDeleted = 0.0f;           // used in finding K(n)
 
-        catch(Exception e)
-        {e.printStackTrace();}
+            for (int j = 0; j < numtrials; j++) {
+                // initializes the graph
+                Graph graph = new Graph(numpoints, dimension, prune);
+
+                // Runs Prim's algorithm on given graph
+                float maxDeleted= Prim.runPrim(graph);
+
+                // Weight of the MST, sum of each vertex's distance
+                float weightOfMST = 0.0f;
+                for (int i = 0; i < graph.getNumberOfVertexes(); i++) {
+                    weightOfMST = weightOfMST + graph.getVertex(i).getDistance();
+
+                }
+
+                // used in k(n) calculations
+                sumOfMaxDeleted = sumOfMaxDeleted + maxDeleted;
+                // sums the weights of the MSTs
+                sumOfWeights = sumOfWeights + weightOfMST;
+            }
+
+            System.out.println(sumOfWeights / numtrials);
+        }
 
     }
 

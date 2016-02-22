@@ -7,7 +7,7 @@ import java.util.LinkedList;
  */
 public class AdjacencyList {
 
-    private LinkedList[] adjacencyList;
+    public LinkedList[] adjacencyList;
     private int numberOfVertexes;
 
     // constructor
@@ -22,36 +22,46 @@ public class AdjacencyList {
             this.adjacencyList = new LinkedList[n];
             // setup random edge weights for the 0D case
             if (dimension == 0) {
-                // initialize each linked list
-                for (int i = 0; i < this.numberOfVertexes; i++) {
-                    this.adjacencyList[i] = new LinkedList();
-
-                    // inititializes all element to be null
-                    for (int j = 0; j < this.numberOfVertexes; j++) {
-                        this.adjacencyList[i].add(null);
-                    }
-                }
-
-
-                // as each column is created, iterate through and randomly assign edge weights
                 for (int i = 0; i < this.numberOfVertexes ; i++) {
+
+                    // creates array of linked lists
+                    this.adjacencyList[i] = new LinkedList();
                     // ensure that we only add each edge once, and that ij and ji are the same
-                    for (int j = 0; j < i; j++) {
+                    for (int j = 0; j <= i; j++) {
                         // adds the edge to the linked list in "both directions" of the edge
                         float randomWeight = randomNumberGenerator.generateRandom();
 
                         // prunes the data, throws away data larger than k(n), based on empirical evidence
                         // see documentation for more details
-                        if (prune && (randomWeight < 1 / ((float) (Math.pow((double) this.numberOfVertexes, (double) 2/3))))) {
-                            Edge edgeIJ = new Edge(randomWeight);
-                            this.adjacencyList[i].set(j, edgeIJ);
-                            this.adjacencyList[j].set(i, edgeIJ);
-                        }
-                        // for smaller numbers of vertices we do not throw away any edges
-                        else if (!prune) {
-                            Edge edgeIJ = new Edge(randomWeight);
-                            this.adjacencyList[i].set(j, edgeIJ);
-                            this.adjacencyList[j].set(i, edgeIJ);
+                        if (prune) {
+                            // if small enough, add to graph
+                            if (randomWeight < 1 / ((float) (Math.pow((double) this.numberOfVertexes, (double) 1/2)))) {
+                                if (i == j) {
+                                   // do not add
+                                } else {
+                                    Edge edgeIJ = new Edge(randomWeight, i, j);
+                                    this.adjacencyList[i].add(edgeIJ);
+                                    this.adjacencyList[j].add(edgeIJ);
+                                }
+                            // otherwise, too large, add null and throw away
+                            } else {
+//                                if (i == j) {
+//                                    this.adjacencyList[i].add(null);
+//                                } else {
+//                                    this.adjacencyList[i].add(null);
+//                                    this.adjacencyList[j].add(null);
+//                                }
+                                // do nothing
+                            }
+                        } else if (!prune) {
+                            if(i == j) {
+                                //this.adjacencyList[i].add(null);
+                                // do nothing
+                            } else {
+                                Edge edgeIJ = new Edge(randomWeight, i, j);
+                                this.adjacencyList[i].add(edgeIJ);
+                                this.adjacencyList[j].add(edgeIJ);
+                            }
                         }
                     }
                 }
@@ -76,7 +86,7 @@ public class AdjacencyList {
                             // pruning algorithm, see documentation
                             if (prune && weight < 1/ ((float) (Math.pow((double) this.numberOfVertexes, (double) 1/3)))) {
                                 // adds the edges to the linked lists twice
-                                Edge edgeIJ = new Edge(weight);
+                                Edge edgeIJ = new Edge(weight, i, j);
                                 this.adjacencyList[i].set(j, edgeIJ);
                                 this.adjacencyList[j].set(i, edgeIJ);
 
@@ -86,7 +96,7 @@ public class AdjacencyList {
                             // pruning algorithm, see documentation
                             if (prune && weight < 1.35/ ((float) (Math.pow((double) this.numberOfVertexes, (double) 1/4)))) {
                                 // adds the edges to the linked lists twice
-                                Edge edgeIJ = new Edge(weight);
+                                Edge edgeIJ = new Edge(weight, i,j);
                                 this.adjacencyList[i].set(j, edgeIJ);
                                 this.adjacencyList[j].set(i, edgeIJ);
                             }
@@ -95,7 +105,7 @@ public class AdjacencyList {
                             // pruning algorithm, see documentation
                             if (prune && weight < 1.4/ ((float) (Math.pow((double) this.numberOfVertexes, (double) 1/5)))) {
                                 // adds the edges to the linked lists twice
-                                Edge edgeIJ = new Edge(weight);
+                                Edge edgeIJ = new Edge(weight, i, j);
                                 this.adjacencyList[i].set(j, edgeIJ);
                                 this.adjacencyList[j].set(i, edgeIJ);
 
@@ -108,7 +118,7 @@ public class AdjacencyList {
                         // adds the edges to the linked lists twice, only implemented for smaller numbers of
                         // vertices where we do not throw away any edges
                         if (!prune) {
-                            Edge edgeIJ = new Edge(weight);
+                            Edge edgeIJ = new Edge(weight, i, j);
                             this.adjacencyList[i].set(j, edgeIJ);
                             this.adjacencyList[j].set(i, edgeIJ);
                         }
@@ -127,10 +137,16 @@ public class AdjacencyList {
         if (i == j) {
             return 0;
         } else {
-            // invariant that every node is connected to every other node
-            Object object = this.adjacencyList[i].get(j);
-            Edge edgeIJ = (Edge) object;
-            return edgeIJ.weight;
+            for (int k = 0; i < this.adjacencyList[i].size(); k++) {
+                Object object = this.adjacencyList[i].get(k);
+                Edge edge = (Edge)object;
+                // if j is one of the two
+                if (j == edge.getVertexes()[0] || j == edge.getVertexes()[1]) {
+                    return edge.weight;
+                }
+            }
+
+            return Float.MAX_VALUE;
         }
     }
 

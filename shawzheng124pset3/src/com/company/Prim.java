@@ -10,7 +10,6 @@ public class Prim {
         //Vertex[] visitedVertexes = new Vertex[numVertexes]; // An array of all visited vertexes
         PriorityQueue heap = new PriorityQueue(numVertexes);
         Vertex min; // Popped min vertex
-        int counter = 0; // Tracks how many vertices have been visited
         int minIndex; // Tracks index of current popped min vertex in while loop
         Vertex neighbor; // Neighbor vertex in for loop of while loop
         //AdjacencyMatrix adjacencyMatrix = graph.getAdjacencyMatrix();
@@ -35,37 +34,39 @@ public class Prim {
             // updates the heap
             //visitedVertexes[counter] = min;
             min.visit();
-            counter++;
             minIndex = min.getIndexInGraph();
 
-            // iterates through the vertexes
-            for (int i = 0; i < numVertexes; i++) {
-                neighbor = graph.getVertex(i);
+            // iterates through the neighbors in the adjacency list
+            for (int i = 0; i < adjacencyList.adjacencyList[minIndex].size(); i++) {
+                Object object = adjacencyList.adjacencyList[minIndex].get(i);
+                Edge edge = (Edge) object;
+                int[] vertIds = edge.getVertexes();
 
-
-                if (minIndex == i || graph.getVertex(i).isVisited()) {
-                    // Skip vertex
+                if(vertIds[0] == minIndex) {
+                    neighbor = graph.getVertex(vertIds[1]);
+                } else {
+                    neighbor = graph.getVertex(vertIds[0]);
                 }
-                else {
-                    // checks if the edge has been pruned
-                    if (adjacencyList.edgeExists(minIndex, i)) {
-                        // check if the new distance to the vertex is faster
-                        if (neighbor.getDistance() > adjacencyList.getEdge(i, minIndex)) {
-                            // update distance and prev pointer
-                            neighbor.setDistance(adjacencyList.getEdge(i, minIndex));
-                            neighbor.setPrevPointer(minIndex);
-                            // insert or update in the heap
-                            if (neighbor.isInHeap()) {
-                                heap.updateVertex(neighbor.getIndexinHeap());
-                            }
-                            else {
-                                heap.insertVertex(neighbor);
-                            }
+
+                if (minIndex == i || neighbor.isVisited()) {
+                    // Skip vertex
+                } else {
+                    // check if the new distance to the vertex is faster
+                    if (neighbor.getDistance() > edge.weight) {
+                        // update distance and prev pointer
+                        neighbor.setDistance(edge.weight);
+                        neighbor.setPrevPointer(minIndex);
+                        // insert or update in the heap
+                        if (neighbor.isInHeap()) {
+                            heap.updateVertex(neighbor.getIndexinHeap());
+                        } else {
+                            heap.insertVertex(neighbor);
                         }
+
                     }
+
                 }
             }
-
         }
         return maxDeleted;
 //        System.out.println("Prim done!");
