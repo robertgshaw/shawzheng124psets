@@ -42,18 +42,25 @@ public class Prim {
             for (int i = 0; i < numVertexes; i++) {
                 neighbor = graph.getVertex(i);
 
+
                 if (minIndex == i || graph.getVertex(i).isVisited()) {
                     // Skip vertex
                 }
                 else {
-                    if (neighbor.getDistance() > adjacencyList.getEdge(i, minIndex)) {
-                        neighbor.setDistance(adjacencyList.getEdge(i, minIndex));
-                        neighbor.setPrevPointer(minIndex);
-                        if (neighbor.isInHeap()) {
-                            heap.updateVertex(neighbor.getIndexinHeap());
-                        }
-                        else {
-                            heap.insertVertex(neighbor);
+                    // checks if the edge has been pruned
+                    if (adjacencyList.edgeExists(minIndex, i)) {
+                        // check if the new distance to the vertex is faster
+                        if (neighbor.getDistance() > adjacencyList.getEdge(i, minIndex)) {
+                            // update distance and prev pointer
+                            neighbor.setDistance(adjacencyList.getEdge(i, minIndex));
+                            neighbor.setPrevPointer(minIndex);
+                            // insert or update in the heap
+                            if (neighbor.isInHeap()) {
+                                heap.updateVertex(neighbor.getIndexinHeap());
+                            }
+                            else {
+                                heap.insertVertex(neighbor);
+                            }
                         }
                     }
                 }

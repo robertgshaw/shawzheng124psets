@@ -39,9 +39,14 @@ public class AdjacencyList {
                     for (int j = 0; j < i; j++) {
                         // adds the edge to the linked list in "both directions" of the edge
                         float randomWeight = randomNumberGenerator.generateRandom();
-                        Edge edgeIJ = new Edge(i, j, randomWeight);
-                        this.adjacencyList[i].set(j, edgeIJ);
-                        this.adjacencyList[j].set(i, edgeIJ);
+
+                        // prunes the data, throws away data larger than k(n), based on empirical evidence
+                        // see documentation for more details
+                        if (randomWeight < 4 / this.numberOfVertexes + .05) {
+                            Edge edgeIJ = new Edge(i, j, randomWeight);
+                            this.adjacencyList[i].set(j, edgeIJ);
+                            this.adjacencyList[j].set(i, edgeIJ);
+                        }
                     }
                 }
 
@@ -62,19 +67,42 @@ public class AdjacencyList {
                     for (int j = 0; j < i; j++) {
                         if (dimension == 2) {
                             weight = Position.calculateDistance2D(vertexes[j].getPosition(), vertexes[i].getPosition());
+                            // pruning algorithm, see documentation
+                            if (weight < 1/ ((float) (Math.pow((double) this.numberOfVertexes, (double) 1/3)))) {
+                                // adds the edges to the linked lists twice
+                                Edge edgeIJ = new Edge(i, j, weight);
+                                this.adjacencyList[i].set(j, edgeIJ);
+                                this.adjacencyList[j].set(i, edgeIJ);
+
+                            }
                         } else if (dimension == 3) {
                             weight = Position.calculateDistance3D(vertexes[j].getPosition(), vertexes[i].getPosition());
+                            // pruning algorithm, see documentation
+                            if (weight < 1.35/ ((float) (Math.pow((double) this.numberOfVertexes, (double) 1/4)))) {
+                                // adds the edges to the linked lists twice
+                                Edge edgeIJ = new Edge(i, j, weight);
+                                this.adjacencyList[i].set(j, edgeIJ);
+                                this.adjacencyList[j].set(i, edgeIJ);
+                            }
                         } else if (dimension == 4) {
                             weight = Position.calculateDistance4D(vertexes[j].getPosition(), vertexes[i].getPosition());
+                            // pruning algorithm, see documentation
+                            if (weight < 1.4/ ((float) (Math.pow((double) this.numberOfVertexes, (double) 1/5)))) {
+                                // adds the edges to the linked lists twice
+                                Edge edgeIJ = new Edge(i, j, weight);
+                                this.adjacencyList[i].set(j, edgeIJ);
+                                this.adjacencyList[j].set(i, edgeIJ);
+
+                            }
                         } else {
                             weight = 0;
                             System.out.println("dimension invalid");
                         }
 
-                        // adds the edges to the linked lists twice
-                        Edge edgeIJ = new Edge(i, j, weight);
-                        this.adjacencyList[i].set(j, edgeIJ);
-                        this.adjacencyList[j].set(i, edgeIJ);
+//                        // adds the edges to the linked lists twice
+//                        Edge edgeIJ = new Edge(i, j, weight);
+//                        this.adjacencyList[i].set(j, edgeIJ);
+//                        this.adjacencyList[j].set(i, edgeIJ);
                     }
                 }
             }
@@ -94,6 +122,17 @@ public class AdjacencyList {
             Object object = this.adjacencyList[i].get(j);
             Edge edgeIJ = (Edge) object;
             return edgeIJ.weight;
+        }
+    }
+
+    // checks if an edge exists
+    public boolean edgeExists(int i, int j) {
+        // check to make sure that the edge has not been "pruned"
+        Object object = this.adjacencyList[i].get(j);
+        if (object == null) {
+            return false;
+        } else {
+            return true;
         }
     }
 }
