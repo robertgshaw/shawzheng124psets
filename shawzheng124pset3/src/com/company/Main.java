@@ -13,7 +13,7 @@ public class Main {
 
         try {
             File f = new
-                    File("/Users/robertshaw/Documents/2016_Spring/CS124/cs124psets/shawzheng124psets/shawzheng124pset3/kn.txt");
+                    File("D:\\Ben\\Documents\\Harvard\\CS 124\\workspace\\shawzheng124psets\\shawzheng124pset3\\kn.txt");
             PrintWriter out = new PrintWriter(f);
 
             for (int k = 1; k < 31; k++) {
