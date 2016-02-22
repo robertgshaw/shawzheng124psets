@@ -8,11 +8,11 @@ public class Main {
     public static void main(String[] args) {
         // 16; 32; 64; 128; 256; 512; 1024; 2048; 4096; 8192; 16384, 32768, 65536,
         int numpoints;
-        int numtrials = 5;
-        int dimension = 0;
+        int numtrials = 1;
+        int dimension = 4;
         boolean prune;
 
-        for (int k = 4; k < 15; k++) {
+        for (int k = 10; k < 11; k++) {
             if (k < 9) {
                 prune = false;
             }
